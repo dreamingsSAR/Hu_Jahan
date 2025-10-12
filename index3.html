@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* tombol hamburger */
+    .menu-btn {
+      cursor: pointer;
+      width: 90px;
+      margin: 20px;
+    }
+
+    /* side menu */
+    .menu {
+      height: 100%;              /* full tinggi layar */
+      width: 0;                  /* awalnya tertutup */
+      position: fixed;
+      top: 0;
+      left: 0;                   /* bisa ubah jadi right:0 kalau mau di kanan */
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.3s;          /* animasi buka/tutup */
+      padding-top: 60px;
+    }
+
+    .menu a {
+      padding: 10px 20px;
+      text-decoration: none;
+      font-size: 20px;
+      color: white;
+      display: block;
+    }
+
+    .menu a:hover {
+      background-color: #575757;
+    }
+
+    /* tombol close (X) */
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+    }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+     <style>
+    body {background-color:rgb(41, 41, 41); }
+  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy BirthDay</title>
+</head>
+<body>
+    <img src ="ChatGPT Image 5 Okt 2025, 14.58.53.png" width="90" height="90" alt="Menu" class="menu-btn" onclick="openMenu()">
+    <div id="sideMenu" class="menu">
+        <span class="close-btn" onclick="closeMenu()">&times;</span>
+        <a href="index.html">kembali ke menu login</a> <br /> <br />
+        <a href="#home">made by Jahan for beloved friends</a>
+        <a href="#alasan">alasan gw buat ini biar kalian bisa buka jam 00:00 dan nganggap gw ucapin jam segitu soalnya gw udah jarang tidur malem</a>
+  </div>
+  <script>
+    function openMenu() {
+      document.getElementById("sideMenu").style.width = "250px"; // buka
+    }
+    function closeMenu() {
+      document.getElementById("sideMenu").style.width = "0"; // tutup
+    }
+  </script> <br /> <br />
+<div style="text-align: center; margin-top: 40px;">
+  <a href="Blue and White Minimalist Travel Agency Banner.png" target="_blank">
+    <img src="522657171_1063942835925589_3648974275540104007_n.jpg" alt="Siggi Secret Door" width="300" style="border-radius: 10px;">
+  </a>
+</div>
+</body>
+</html>

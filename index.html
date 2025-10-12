@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bday</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .card {
+    background: #fff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    width: 380px;
+    text-align: center;
+  }
+  h2 {
+    margin-bottom: 16px;
+  }
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #2b7cff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .msg {
+    height: 20px;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h2>Masukan username dan Password</h2>
+
+    <input type="text" id="atas" placeholder="Username">
+    <input type="text" id="bawah" placeholder="Password">
+    <button id="cek">Masuk</button>
+
+    <div class="msg" id="msg"></div>
+  </div>
+
+<script>
+  // 🎯 Daftar kombinasi kalimat dan websitenya
+  const redirectCombos = [
+    { atas: "nayla", bawah: "itto", url: "index1.html" },
+    { atas: "aya", bawah: "miko", url: "index2.html" },
+    { atas: "siggi", bawah: "secret door", url: "index3.html" },
+    { atas: "berita", bawah: "baca", url: "https://www.bbc.com" },
+    { atas: "video", bawah: "tonton", url: "https://www.youtube.com" }
+  ];
+
+  // 🔍 Normalisasi input (biar gak peka kapital/tanda baca)
+  function normalize(text) {
+    return text.toLowerCase().trim().replace(/[.?!,;:]+$/g, "");
+  }
+
+  document.getElementById("cek").addEventListener("click", () => {
+    const atas = normalize(document.getElementById("atas").value);
+    const bawah = normalize(document.getElementById("bawah").value);
+    const msg = document.getElementById("msg");
+
+    if (!atas || !bawah) {
+      msg.style.color = "red";
+      msg.textContent = "Isi Username dan Password.";
+      return;
+    }
+
+    // Cek apakah ada pasangan yang cocok
+    const match = redirectCombos.find(
+      pair => pair.atas === atas && pair.bawah === bawah
+    );
+
+    if (match) {
+      msg.style.color = "green";
+      msg.textContent = `Berhasil Masuk ...`;
+      setTimeout(() => {
+        window.location.href = match.url;
+      }, 700);
+    } else {
+      msg.style.color = "red";
+      msg.textContent = "Username atau Password salah.";
+    }
+  });
+
+  // Tekan Enter = langsung cek
+  document.addEventListener("keydown", e => {
+    if (e.key === "Enter") document.getElementById("cek").click();
+  });
+</script>
+</body>
+</html>
